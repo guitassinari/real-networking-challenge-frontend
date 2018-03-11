@@ -1,6 +1,6 @@
 import request from 'request'
 
-const API_HOST = 'http://localhost:3000/'
+const API_HOST = process.env.REACT_APP_API_HOST || 'http://localhost:3000/'
 
 export function post(route, body){
   return new Promise((resolve, reject) => {
