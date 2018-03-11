@@ -144,7 +144,7 @@ class SigninForm extends Component {
         <div className="FormFeedbackMessage" style={{ color, display: show ? null : 'none' }}>
           {message}
         </div>
-        <form className="Form" onClick={e => this.submitSignin(e)}>
+        <form className="Form" onSubmit={e => this.submitSignin(e)}>
           <div>
             <label>Seu email:</label>
             <input value={email} type="email" onChange={e => this.setLoginFormFieldValue('email', e)}/>
@@ -154,7 +154,7 @@ class SigninForm extends Component {
             <input value={password} type="password" onChange={e => this.setLoginFormFieldValue('password', e)}/>
           </div>
           <div className="FormSubmitionDiv">
-            <button type="submit" >
+            <button type="submit">
               Entrar
             </button>
           </div>

@@ -20,7 +20,7 @@ header {
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-around;
   text-align: center
 }
@@ -145,4 +145,24 @@ button {
   text-align: center;
   padding: 15px 30px;
   font-size: 10pt;
+}
+
+.Card {
+  background-color: #dddddd;
+  width: 500px;
+}
+
+@media(max-width: 600px){
+  .Card {
+    min-width: 100vw;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
 }
