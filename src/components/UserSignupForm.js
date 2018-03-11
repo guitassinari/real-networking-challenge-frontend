@@ -4,7 +4,7 @@ import { MODELS } from '../helpers/model-options'
 import PropTypes from 'prop-types'
 import { signup } from '../api/user'
 
-class FormSelector extends Component {
+class SignupForm extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -21,7 +21,8 @@ class FormSelector extends Component {
     }
   }
 
-  submit(){
+  submit(e){
+    e.preventDefault()
     signup(this.state.form).catch(message => {
       this.setState({
         userFeedbackMessage: {
@@ -54,7 +55,7 @@ class FormSelector extends Component {
         <div className="FormFeedbackMessage" style={{ color, display: show ? null : 'none' }}>
           {message}
         </div>
-        <div className="Form">
+        <form className="Form" onSubmit={e => this.submit(e)}>
           <div>
             <label>Seu nome:</label>
             <input type="text" onChange={e => this.setFormFieldValue('name', e)}/>
@@ -67,20 +68,15 @@ class FormSelector extends Component {
             <label>Sua senha:</label>
             <input type="password" onChange={e => this.setFormFieldValue('password', e)}/>
           </div>
-        </div>
-        <div className="FormSubmitionDiv">
-          <button onClick={() => this.submit()}>
-            Salvar
-          </button>
-        </div>
+          <div className="FormSubmitionDiv">
+            <button type="submit">
+              Cadastrar
+            </button>
+          </div>
+        </form>
       </div>
     )
   }
 }
 
-FormSelector.propTypes = {
-  action: PropTypes.oneOf(Object.values(ACTIONS)) ,
-  model: PropTypes.oneOf(Object.values(MODELS)),
-}
-
-export default FormSelector;
+export default SignupForm;

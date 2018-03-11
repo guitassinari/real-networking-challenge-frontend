@@ -26,6 +26,9 @@ class App extends Component {
   getText(){
     const  { model, action } = this.state
     if(action === ACTIONS.SIGNUP){
+      if(model === MODELS.BUSINESS){
+        return 'Cadastre sua empresa na RN! (Módulo ainda não implementado!)'
+      }
       return 'Cadastre seu usuário e faça parte da RN!'
     }
 
@@ -33,10 +36,11 @@ class App extends Component {
       return 'Edite seu cadastro na RN!'
     }
 
-    return 'Edite sua empresa cadastrada na RN!'
+    return 'Edite sua empresa cadastrada na RN! (Módulo ainda não implementado)'
   }
 
   render() {
+
     return (
       <div>
         <header>
@@ -60,7 +64,7 @@ class App extends Component {
             </div>
           </div>
           <div className="CallToActionText">
-            Cadastre seu usuário e faça parte da RN!
+            {this.getText()}
           </div>
           <hr />
           <FormSelector action={this.state.action} model={this.state.model} />

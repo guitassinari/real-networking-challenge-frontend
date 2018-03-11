@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
-import { ACTIONS } from '../helpers/action-options'
-import { MODELS } from '../helpers/model-options'
 
-import PropTypes from 'prop-types'
-
-class FormSelector extends Component {
+class BusinessSignup extends Component {
   render() {
     return (
       <div>
-        <div className="Form">
+        <form className="Form">
           <div>
-            <label>Seu nome:</label>
+            <label>Sua empresa:</label>
             <input type="text" />
           </div>
           <div>
-            <label>Sua senha:</label>
-            <input type="password" />
+            <label>Setor onde sua empresa atua:</label>
+            <select>
+              <option>Indústria</option>
+              <option>Comércio</option>
+              <option>Tecnologia</option>
+            </select>
           </div>
-        </div>
-        <div className="FormSubmitionDiv">
-          <button>
-            Salvar
-          </button>
-        </div>
+          <div className="FormSubmitionDiv">
+            <button type="submit">
+              Cadastrar
+            </button>
+          </div>
+        </form>
       </div>
     )
   }
 }
 
-FormSelector.propTypes = {
-  action: PropTypes.oneOf(Object.values(ACTIONS)) ,
-  model: PropTypes.oneOf(Object.values(MODELS)),
-}
-
-export default FormSelector;
+export default BusinessSignup;
