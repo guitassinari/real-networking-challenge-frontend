@@ -10,7 +10,7 @@ class SigninForm extends Component {
         email: '',
         password: '',
       },
-      userForm: {
+      userForm: CurrentUser.get() || {
         name: '',
         password: '',
       },
@@ -40,7 +40,7 @@ class SigninForm extends Component {
       this.setState({
         userFeedbackMessage: {
           show: true,
-          message,
+          message: message || 'Erro ao logar-se.',
           color: 'red'
         }
       })
@@ -49,7 +49,7 @@ class SigninForm extends Component {
 
   submitEdit(e){
     e.preventDefault()
-    update(this.state.userForm).then(user => {
+    update(CurrentUser.get().id, this.state.userForm).then(user => {
       this.setState({
         userFeedbackMessage: {
           show: true,
@@ -61,7 +61,7 @@ class SigninForm extends Component {
       this.setState({
         userFeedbackMessage: {
           show: true,
-          message,
+          message: message || 'Erro ao editar o usuário',
           color: 'red'
         }
       })
@@ -80,11 +80,11 @@ class SigninForm extends Component {
           color: 'green'
         }
       })
-    }).catch(() => {
+    }).catch(message => {
       this.setState({
         userFeedbackMessage: {
           show: true,
-          message: "Houve algum erro ao deletarmos o usuário",
+          message: message || "Houve algum erro ao deletarmos o usuário",
           color: 'red'
         }
       })

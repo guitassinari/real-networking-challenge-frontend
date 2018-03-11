@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { ACTIONS } from '../helpers/action-options'
-import { MODELS } from '../helpers/model-options'
-import PropTypes from 'prop-types'
 import { signup } from '../api/user'
 
 class SignupForm extends Component {
