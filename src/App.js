@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import FormSelector from './components/FormSelector'
 import { ACTIONS } from './helpers/action-options'
 import { MODELS } from './helpers/model-options'
+
 class App extends Component {
   constructor(props){
     super(props)
@@ -61,21 +63,7 @@ class App extends Component {
             Cadastre seu usuário e faça parte da RN!
           </div>
           <hr />
-          <div className="Form">
-            <div>
-              <label>Seu nome:</label>
-              <input type="text" />
-            </div>
-            <div>
-              <label>Sua senha:</label>
-              <input type="password" />
-            </div>
-          </div>
-          <div className="FormSubmitionDiv">
-            <button>
-              Salvar
-            </button>
-          </div>
+          <FormSelector action={this.state.action} model={this.state.model} />
         </div>
       </div>
     );
