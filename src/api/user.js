@@ -33,11 +33,12 @@ export function signin({ email, password }){
     throw "Você precisa de uma senha para logar!"
   }
 
-  return api.post('user_token', { auth: { email, password } }).then(({jwt}) => jwt)
+  return api.post('user_token', { auth: { email, password } })
+    .then(({jwt}) => jwt)
 }
 
-export function update({ name, password }){
-  return api.put(ROUTE, { user: { name, password } })
+export function update(id, { name, password }){
+  return api.put(`${ROUTE}/${id}`, { user: { name, password } })
 }
 
 export function destroy(id){
