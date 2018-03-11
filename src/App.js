@@ -42,32 +42,34 @@ class App extends Component {
   render() {
 
     return (
-      <div>
-        <header>
-          Cadastro
-        </header>
-        <div>
-          <div className="ActionSelector">
-            <div className={this.state.action === ACTIONS.SIGNUP ? 'active' : ''} onClick={() => this.setAction(ACTIONS.SIGNUP)}>
-              Novo cadastro
+      <div className="container">
+        <div className="Card">
+          <header>
+            Cadastro
+          </header>
+          <div>
+            <div className="ActionSelector">
+              <div className={this.state.action === ACTIONS.SIGNUP ? 'active' : ''} onClick={() => this.setAction(ACTIONS.SIGNUP)}>
+                Novo cadastro
+              </div>
+              <div className={this.state.action === ACTIONS.EDIT ? 'active' : ''} onClick={() => this.setAction(ACTIONS.EDIT)}>
+                Editar cadastro
+              </div>
             </div>
-            <div className={this.state.action === ACTIONS.EDIT ? 'active' : ''} onClick={() => this.setAction(ACTIONS.EDIT)}>
-              Editar cadastro
+            <div className="ModelSelector">
+              <div className={this.state.model === MODELS.USER ? 'active' : ''} onClick={() => this.setModel(MODELS.USER)}>
+                Seu cadastro
+              </div>
+              <div className={this.state.model === MODELS.BUSINESS ? 'active' : ''} onClick={() => this.setModel(MODELS.BUSINESS)}>
+                Cadastro empresa
+              </div>
             </div>
+            <div className="CallToActionText">
+              {this.getText()}
+            </div>
+            <hr />
+            <FormSelector action={this.state.action} model={this.state.model} />
           </div>
-          <div className="ModelSelector">
-            <div className={this.state.model === MODELS.USER ? 'active' : ''} onClick={() => this.setModel(MODELS.USER)}>
-              Seu cadastro
-            </div>
-            <div className={this.state.model === MODELS.BUSINESS ? 'active' : ''} onClick={() => this.setModel(MODELS.BUSINESS)}>
-              Cadastro empresa
-            </div>
-          </div>
-          <div className="CallToActionText">
-            {this.getText()}
-          </div>
-          <hr />
-          <FormSelector action={this.state.action} model={this.state.model} />
         </div>
       </div>
     );
